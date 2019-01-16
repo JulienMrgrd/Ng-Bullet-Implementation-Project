@@ -1,0 +1,36 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "fr.bullet",
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.7.2",
+        "applicationType": "monolith",
+        "baseName": "jhipster",
+        "packageName": "fr.bullet",
+        "packageFolder": "fr/bullet",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NjI5NzI0ZWVlZDQ0MWZjNDRhZTMxNjRmY2ZhODE3NDMxOGJkNjE1Y2VkNTE3YmVhNzg4Yjc3OTNjMzI2ZWFmZTVmMzJmN2QwYjBhMDA2Yzc3NTg0MjE5YzhiMTI0NDk2ZWZhMTQ3YTZhMzRlMjQwZDUzMmVkOWEzNWUzODc1NzU=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "yarn",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en", "fr"]
+    }
+}
