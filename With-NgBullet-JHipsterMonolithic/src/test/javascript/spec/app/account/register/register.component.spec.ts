@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async, inject, tick, fakeAsync } from '@angular/core/testing';
 import { Observable, of, throwError } from 'rxjs';
 
@@ -13,14 +14,12 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<RegisterComponent>;
         let comp: RegisterComponent;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [RegisterComponent]
-            })
-                .overrideTemplate(RegisterComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(RegisterComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(RegisterComponent);

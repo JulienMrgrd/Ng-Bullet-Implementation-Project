@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
 import { PasswordStrengthBarComponent } from './password-strength-bar.component';
@@ -9,12 +10,11 @@ describe('Component Tests', () => {
         let comp: PasswordStrengthBarComponent;
         let fixture: ComponentFixture<PasswordStrengthBarComponent>;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 declarations: [PasswordStrengthBarComponent]
-            }).overrideTemplate(PasswordStrengthBarComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(PasswordStrengthBarComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(PasswordStrengthBarComponent);

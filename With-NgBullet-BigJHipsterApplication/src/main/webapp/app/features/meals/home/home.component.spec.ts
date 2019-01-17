@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { DebugElement, Injectable } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -31,7 +32,7 @@ describe('HomeComponent', () => {
         { path: '', component: HomeComponent },
         { path: 'test', component: HomeComponent, data: { layout: { paddingTop: true } } }
     ];
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockWindowService = new MockWindowService();
         TestBed.configureTestingModule({
             imports: [
@@ -51,9 +52,8 @@ describe('HomeComponent', () => {
                 { provide: 'Window', useValue: mockWindowService },
                 { provide: ApiService, useValue: mockApiService }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(HomeComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable max-line-length */
 import { ComponentFixture, TestBed, async, inject } from '@angular/core/testing';
 import { OnInit } from '@angular/core';
@@ -18,7 +19,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<HeroDetailComponent>;
         let service: HeroService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [HeroDetailComponent],
@@ -33,9 +34,8 @@ describe('Component Tests', () => {
                     HeroService,
                     JhiEventManager
                 ]
-            }).overrideTemplate(HeroDetailComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(HeroDetailComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(HeroDetailComponent);

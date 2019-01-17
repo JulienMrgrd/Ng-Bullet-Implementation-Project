@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { Component, Injectable } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -18,15 +19,14 @@ export class ContainerComponent {
 describe('Directive: WatchHeight', () => {
     let fixture: ComponentFixture<ContainerComponent>;
     const mockGlobalEventsService = new MockGlobalEventsService();
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             providers: [
                 { provide: GlobalEventsService, useValue: mockGlobalEventsService }
             ],
             declarations: [ContainerComponent, WatchHeightDirective]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ContainerComponent);

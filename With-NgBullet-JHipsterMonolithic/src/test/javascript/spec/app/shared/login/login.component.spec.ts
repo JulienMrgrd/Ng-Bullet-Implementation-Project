@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -20,7 +21,7 @@ describe('Component Tests', () => {
         let mockEventManager: any;
         let mockActiveModal: any;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [JhiLoginModalComponent],
@@ -34,10 +35,8 @@ describe('Component Tests', () => {
                         useClass: MockStateStorageService
                     }
                 ]
-            })
-                .overrideTemplate(JhiLoginModalComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(JhiLoginModalComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiLoginModalComponent);

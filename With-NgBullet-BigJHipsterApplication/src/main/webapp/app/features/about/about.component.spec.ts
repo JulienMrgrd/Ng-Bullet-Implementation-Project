@@ -2,6 +2,7 @@
 import { DebugElement, EventEmitter, Injectable } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { configureTestSuite } from 'ng-bullet';
 
 import { AboutComponent } from './about.component';
 import { ApiService } from '../../core/api/api.service';
@@ -30,7 +31,7 @@ describe('AboutComponent', () => {
     let component: AboutComponent;
     let fixture: ComponentFixture<AboutComponent>;
     let mockApiService: MockApiService;
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockApiService = new MockApiService();
         TestBed.configureTestingModule({
             declarations: [
@@ -41,9 +42,8 @@ describe('AboutComponent', () => {
             providers: [
                 { provide: ApiService, useValue: mockApiService }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(AboutComponent);

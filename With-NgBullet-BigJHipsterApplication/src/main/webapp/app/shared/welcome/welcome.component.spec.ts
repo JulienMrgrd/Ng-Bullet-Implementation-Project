@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 // import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 // import { By } from '@angular/platform-browser';
 // import { DebugElement } from '@angular/core';
@@ -15,7 +16,7 @@
 //     let de: DebugElement;  // the DebugElement with the welcome message
 //     let el: HTMLElement; // the DOM element with the welcome message
 
-//     beforeEach(() => {
+//     configureTestSuite(() => {
 //         TestBed.configureTestingModule({
 //             declarations: [WelcomeComponent],
 //             // providers:    [ Principal ]  // NO! Don't provide the real service!

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -27,7 +28,7 @@ describe('StickyScrollComponent', () => {
         { path: '', component: ContainerComponent },
         { path: 'test', component: ContainerComponent }
     ];
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockGlobalEventsService = new MockGlobalEventsService();
         TestBed.configureTestingModule({
             imports: [
@@ -38,9 +39,8 @@ describe('StickyScrollComponent', () => {
                 { provide: GlobalEventsService, useValue: mockGlobalEventsService }
             ],
             declarations: [ContainerComponent, StickyScrollComponent]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ContainerComponent);

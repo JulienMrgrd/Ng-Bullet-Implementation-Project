@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -32,7 +33,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<AuditsComponent>;
         let service: AuditsService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [AuditsComponent],
@@ -43,9 +44,8 @@ describe('Component Tests', () => {
                     PaginationConfig,
                     DatePipe
                 ]
-            }).overrideTemplate(AuditsComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(AuditsComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(AuditsComponent);

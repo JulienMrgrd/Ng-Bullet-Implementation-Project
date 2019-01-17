@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -8,16 +9,15 @@ import { MealsSharedModule } from '../../shared/shared.module';
 describe('RecipeAdComponent', () => {
     let component: RecipeAdComponent;
     let fixture: ComponentFixture<RecipeAdComponent>;
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             imports: [
                 GreatBigExampleApplicationSharedModule,
                 MealsSharedModule
             ],
             declarations: [RecipeAdComponent]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(RecipeAdComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
@@ -13,7 +14,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<JhiAlertErrorComponent>;
         let eventManager: JhiEventManager;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule, TranslateModule.forRoot()],
                 declarations: [JhiAlertErrorComponent],
@@ -24,10 +25,8 @@ describe('Component Tests', () => {
                         useClass: MockAlertService
                     }
                 ]
-            })
-                .overrideTemplate(JhiAlertErrorComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(JhiAlertErrorComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiAlertErrorComponent);

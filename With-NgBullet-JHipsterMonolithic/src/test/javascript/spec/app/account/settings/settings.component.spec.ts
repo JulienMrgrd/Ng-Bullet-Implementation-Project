@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable, throwError } from 'rxjs';
 
@@ -11,15 +12,13 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<SettingsComponent>;
         let mockAuth: any;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [SettingsComponent],
                 providers: []
-            })
-                .overrideTemplate(SettingsComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(SettingsComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(SettingsComponent);

@@ -1,10 +1,11 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { FilterUtilitiesService } from './filter-utilities.service';
 
 describe('Service: FilterUtilities', () => {
-    beforeEach(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             providers: [FilterUtilitiesService]
         });

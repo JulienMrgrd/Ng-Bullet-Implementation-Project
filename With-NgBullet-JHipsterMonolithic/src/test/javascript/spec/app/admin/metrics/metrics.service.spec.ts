@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { TestBed } from '@angular/core/testing';
 
 import { JhiMetricsService } from 'app/admin/metrics/metrics.service';
@@ -9,7 +10,7 @@ describe('Service Tests', () => {
         let service: JhiMetricsService;
         let httpMock;
 
-        beforeEach(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });

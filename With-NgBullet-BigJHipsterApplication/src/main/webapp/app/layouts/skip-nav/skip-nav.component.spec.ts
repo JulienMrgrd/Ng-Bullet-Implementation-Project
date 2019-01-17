@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -11,16 +12,15 @@ describe('SkipNavComponent', () => {
     let component: SkipNavComponent;
     let fixture: ComponentFixture<SkipNavComponent>;
     let mockRouter: MockRouter;
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockRouter = new MockRouter();
         TestBed.configureTestingModule({
             declarations: [SkipNavComponent],
             providers: [
                 { provide: Router, useValue: mockRouter }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(SkipNavComponent);

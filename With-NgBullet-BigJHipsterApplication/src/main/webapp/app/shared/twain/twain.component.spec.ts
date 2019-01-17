@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { async, fakeAsync, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -17,12 +18,15 @@ describe('TwainComponent', () => {
 
     const testQuote = 'Test Quote';
 
-    beforeEach(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             declarations: [TwainComponent],
             providers: [TwainService],
         });
 
+    });
+
+    beforeEach(() => {
         fixture = TestBed.createComponent(TwainComponent);
         comp = fixture.componentInstance;
 

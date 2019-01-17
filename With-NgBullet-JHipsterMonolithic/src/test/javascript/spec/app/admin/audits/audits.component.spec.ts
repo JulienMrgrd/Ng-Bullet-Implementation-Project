@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
@@ -36,15 +37,13 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<AuditsComponent>;
         let service: AuditsService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [AuditsComponent],
                 providers: [AuditsService]
-            })
-                .overrideTemplate(AuditsComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(AuditsComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(AuditsComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /*  TODO: Convert the init from Promises to Observables
 
 import {
@@ -26,7 +27,7 @@ let page: Page;
 
 describe('HeroListComponent', () => {
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     addMatchers();
     TestBed.configureTestingModule({
       imports: [HeroModule],

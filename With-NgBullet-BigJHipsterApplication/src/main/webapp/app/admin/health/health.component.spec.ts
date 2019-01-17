@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GreatBigExampleApplicationTestModule } from '../../../mocks/test.module';
@@ -12,7 +13,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<JhiHealthCheckComponent>;
         let service: JhiHealthService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [JhiHealthCheckComponent],
@@ -23,9 +24,8 @@ describe('Component Tests', () => {
                         useValue: null
                     }
                 ]
-            }).overrideTemplate(JhiHealthCheckComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(JhiHealthCheckComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiHealthCheckComponent);
