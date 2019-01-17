@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed, inject, tick, fakeAsync } from '@angular/core/testing';
+import { PasswordResetInitComponent } from 'app/account';
+import { configureTestSuite } from 'ng-bullet';
 import { Observable, of, throwError } from 'rxjs';
 import { Renderer, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,8 +15,8 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<PasswordResetFinishComponent>;
         let comp: PasswordResetFinishComponent;
 
-        beforeEach(() => {
-            fixture = TestBed.configureTestingModule({
+        configureTestSuite(() => {
+            TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [PasswordResetFinishComponent],
                 providers: [
@@ -33,9 +35,7 @@ describe('Component Tests', () => {
                         useValue: new ElementRef(null)
                     }
                 ]
-            })
-                .overrideTemplate(PasswordResetFinishComponent, '')
-                .createComponent(PasswordResetFinishComponent);
+            }).overrideTemplate(PasswordResetFinishComponent, '');
         });
 
         beforeEach(() => {

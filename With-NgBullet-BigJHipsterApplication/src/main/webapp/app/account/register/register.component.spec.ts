@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async, inject, tick, fakeAsync } from '@angular/core/testing';
 import { Renderer, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -14,7 +15,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<RegisterComponent>;
         let comp: RegisterComponent;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [RegisterComponent],
@@ -33,9 +34,8 @@ describe('Component Tests', () => {
                         useValue: null
                     }
                 ]
-            }).overrideTemplate(RegisterComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(RegisterComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(RegisterComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -9,12 +10,11 @@ describe('IconResetComponent', () => {
     let component: IconResetComponent;
     let fixture: ComponentFixture<IconResetComponent>;
 
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             declarations: [IconResetComponent]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(IconResetComponent);

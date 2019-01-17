@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -13,7 +14,7 @@ describe('TimerButtonComponent', () => {
     let component: TimerButtonComponent;
     let fixture: ComponentFixture<TimerButtonComponent>;
     let mockTimerService: MockTimerService;
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockTimerService = new MockTimerService();
         TestBed.configureTestingModule({
             imports: [GreatBigExampleApplicationSharedModule, MealsSharedModule],
@@ -21,9 +22,8 @@ describe('TimerButtonComponent', () => {
             providers: [
                 { provide: TimerService, useValue: mockTimerService }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(TimerButtonComponent);

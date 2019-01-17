@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { EventEmitter, Injectable } from '@angular/core';
 import { TestBed, async, inject } from '@angular/core/testing';
@@ -7,7 +8,7 @@ import { MockRouter } from '../../../mocks/mock-router.spec';
 
 describe('Service: StatusBar', () => {
   let mockRouter: MockRouter;
-  beforeEach(() => {
+  configureTestSuite(() => {
     mockRouter = new MockRouter();
     TestBed.configureTestingModule({
       providers: [

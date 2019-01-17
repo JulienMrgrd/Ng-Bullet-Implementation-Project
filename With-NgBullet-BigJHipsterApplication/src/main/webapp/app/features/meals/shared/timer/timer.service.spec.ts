@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
@@ -11,7 +12,7 @@ import { MockPushService } from './mock-push.service.spec';
 describe('Service: Timer', () => {
     let mockPushService: MockPushService;
     let mockStatusBarService: MockStatusBarService;
-    beforeEach(() => {
+    configureTestSuite(() => {
         mockPushService = new MockPushService();
         mockStatusBarService = new MockStatusBarService();
         TestBed.configureTestingModule({

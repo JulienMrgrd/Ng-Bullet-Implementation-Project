@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, Injectable } from '@angular/core';
+import { configureTestSuite } from 'ng-bullet';
 import { Subject } from 'rxjs/Subject';
 
 import { FilterComponent } from './filter.component';
@@ -19,7 +20,7 @@ describe('FilterComponent', () => {
     let fixture: ComponentFixture<FilterComponent>;
     let mockGlobalEventsService: MockGlobalEventsService;
     let mockWindowService: MockWindowService;
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockWindowService = new MockWindowService();
         mockGlobalEventsService = new MockGlobalEventsService();
         TestBed.configureTestingModule({
@@ -30,9 +31,8 @@ describe('FilterComponent', () => {
                 { provide: GlobalEventsService, useValue: mockGlobalEventsService },
                 { provide: 'Window', useValue: mockWindowService }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(FilterComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { TestBed, async, tick, fakeAsync, inject } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -13,7 +14,7 @@ describe('Component Tests', () => {
 
         let comp: ActivateComponent;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [ActivateComponent],
@@ -28,9 +29,8 @@ describe('Component Tests', () => {
                         useValue: null
                     }
                 ]
-            }).overrideTemplate(ActivateComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(ActivateComponent, '');
+        });
 
         beforeEach(() => {
             const fixture = TestBed.createComponent(ActivateComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -10,15 +11,14 @@ describe('ImageCoverComponent', () => {
     let component: ImageCoverComponent;
     let fixture: ComponentFixture<ImageCoverComponent>;
 
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             declarations: [
                 ImageCoverComponent,
                 LoadingComponent
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ImageCoverComponent);

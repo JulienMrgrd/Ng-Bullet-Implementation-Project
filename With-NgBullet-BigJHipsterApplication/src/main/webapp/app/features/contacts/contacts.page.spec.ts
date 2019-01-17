@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 // derived from https://gist.github.com/brandonroberts/a7faa171760aacbd7a53ec3d3342304c
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -21,7 +22,7 @@ describe('ContactPage', () => {
     let debugElement: DebugElement;
     let store: Store<fromRoot.RootState>;
 
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             imports: [
                 GreatBigExampleApplicationTestModule,
@@ -44,8 +45,8 @@ describe('ContactPage', () => {
                 styleUrls: []
                 // I assume you can do the same for templateUrl here
             }
-        }).compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ContactsPage);

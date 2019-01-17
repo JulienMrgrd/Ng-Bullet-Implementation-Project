@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { Component, Injectable, OnInit } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -45,16 +46,15 @@ export class ContainerComponent implements OnInit {
 describe('Pipe: Filter', () => {
     let component: ContainerComponent;
     let fixture: ComponentFixture<ContainerComponent>;
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             providers: [
                 FilterPipe,
                 FilterUtilitiesService
             ],
             declarations: [ContainerComponent, FilterPipe]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ContainerComponent);

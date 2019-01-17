@@ -1,12 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import * as uuid from 'uuid/uuid';
-
 import * as fromRoot from '../../core/store';
 import { Note } from '../../core/store/note/note.model';
 import { slices } from '../../core/store/util';
 import * as EntityActions from '../../core/store/entity/entity.actions';
+import * as uuid from 'uuid';
 
 @Component({
     selector: 'jhi-notes',

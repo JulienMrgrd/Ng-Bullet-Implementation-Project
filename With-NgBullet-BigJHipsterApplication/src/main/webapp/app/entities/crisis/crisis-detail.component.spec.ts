@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable max-line-length */
 import { ComponentFixture, TestBed, async, inject } from '@angular/core/testing';
 import { OnInit } from '@angular/core';
@@ -18,7 +19,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<CrisisDetailComponent>;
         let service: CrisisService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [CrisisDetailComponent],
@@ -33,9 +34,8 @@ describe('Component Tests', () => {
                     CrisisService,
                     JhiEventManager
                 ]
-            }).overrideTemplate(CrisisDetailComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(CrisisDetailComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(CrisisDetailComponent);

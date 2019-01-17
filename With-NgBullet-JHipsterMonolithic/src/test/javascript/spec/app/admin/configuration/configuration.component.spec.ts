@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
@@ -14,15 +15,13 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<JhiConfigurationComponent>;
         let service: JhiConfigurationService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [JhiConfigurationComponent],
                 providers: [JhiConfigurationService]
-            })
-                .overrideTemplate(JhiConfigurationComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(JhiConfigurationComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(JhiConfigurationComponent);

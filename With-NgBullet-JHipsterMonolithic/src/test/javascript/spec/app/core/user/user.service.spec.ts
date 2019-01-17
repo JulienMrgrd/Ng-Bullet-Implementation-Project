@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { TestBed } from '@angular/core/testing';
 import { JhiDateUtils } from 'ng-jhipster';
 
@@ -10,7 +11,7 @@ describe('Service Tests', () => {
         let service: UserService;
         let httpMock;
 
-        beforeEach(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule],
                 providers: [JhiDateUtils]

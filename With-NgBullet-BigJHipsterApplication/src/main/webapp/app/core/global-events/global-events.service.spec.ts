@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, inject, TestBed } from '@angular/core/testing';
 
@@ -6,7 +7,7 @@ import { MockWindowService } from '../../../mocks/mock-window.service.spec';
 
 describe('Service: GlobalEvents', () => {
     let mockWindowService: MockWindowService;
-    beforeEach(() => {
+    configureTestSuite(() => {
         mockWindowService = new MockWindowService();
         TestBed.configureTestingModule({
             providers: [

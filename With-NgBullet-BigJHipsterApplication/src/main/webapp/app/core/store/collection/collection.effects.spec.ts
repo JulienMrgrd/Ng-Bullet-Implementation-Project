@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { Actions } from '@ngrx/effects';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs/observable/of';
@@ -33,7 +34,7 @@ describe('CollectionEffects', () => {
     const book1 = { id: '111', volumeInfo: {} } as Book;
     const book2 = { id: '222', volumeInfo: {} } as Book;
 
-    beforeEach(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             providers: [
                 CollectionEffects,

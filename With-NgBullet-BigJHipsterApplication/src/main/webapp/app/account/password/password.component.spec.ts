@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import { GreatBigExampleApplicationTestModule } from '../../../mocks/test.module';
@@ -16,7 +17,7 @@ describe('Component Tests', () => {
     let fixture: ComponentFixture<PasswordComponent>;
     let service: PasswordService;
 
-    beforeEach(async(() => {
+    configureTestSuite(() => {
       TestBed.configureTestingModule({
         imports: [GreatBigExampleApplicationTestModule],
         declarations: [PasswordComponent],
@@ -29,9 +30,8 @@ describe('Component Tests', () => {
           },
           PasswordService
         ]
-      }).overrideTemplate(PasswordComponent, '')
-        .compileComponents();
-    }));
+      }).overrideTemplate(PasswordComponent, '');
+    });
 
     beforeEach(() => {
       fixture = TestBed.createComponent(PasswordComponent);

@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -12,16 +13,15 @@ describe('StatusBarComponent', () => {
   let component: StatusBarComponent;
   let fixture: ComponentFixture<StatusBarComponent>;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     mockStatusBarService = new MockStatusBarService();
     TestBed.configureTestingModule({
       declarations: [StatusBarComponent],
       providers: [
         { provide: StatusBarService, useValue: mockStatusBarService }
       ]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StatusBarComponent);

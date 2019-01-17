@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import { JhiLanguageHelper } from '../../shared';
@@ -18,7 +19,7 @@ describe('Component Tests', () => {
         let mockAuth: any;
         let mockPrincipal: any;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [SettingsComponent],
@@ -40,9 +41,8 @@ describe('Component Tests', () => {
                         useValue: null
                     },
                 ]
-            }).overrideTemplate(SettingsComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(SettingsComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(SettingsComponent);

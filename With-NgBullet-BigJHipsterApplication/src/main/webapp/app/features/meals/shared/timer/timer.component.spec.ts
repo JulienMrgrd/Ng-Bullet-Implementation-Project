@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { configureTestSuite } from 'ng-bullet';
 
 import { TimerComponent } from './timer.component';
 import { TimerService } from './timer.service';
@@ -20,7 +21,7 @@ describe('TimerComponent', () => {
         { path: '', component: TimerComponent },
         { path: 'test', component: TimerComponent }
     ];
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockTimerService = new MockTimerService();
         TestBed.configureTestingModule({
             imports: [
@@ -34,9 +35,8 @@ describe('TimerComponent', () => {
                 TimerService,
                 { provide: TimerService, useValue: mockTimerService }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(TimerComponent);

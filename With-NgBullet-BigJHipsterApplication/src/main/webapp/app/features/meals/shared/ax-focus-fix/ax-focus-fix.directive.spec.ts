@@ -2,6 +2,7 @@
 import { Component, HostBinding, Injectable, ViewChild } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationEnd, Router } from '@angular/router';
+import { configureTestSuite } from 'ng-bullet';
 import { Subject } from 'rxjs/Subject';
 
 import { AxFocusFixDirective } from './ax-focus-fix.directive';
@@ -30,7 +31,7 @@ describe('Directive: appAxFocus01Fix', () => {
         mockWindowService.pageYOffset = y;
         mockGlobalEventsService.update();
     }
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         mockRouter = new MockRouter();
         mockDocumentService = new MockDocumentService();
         mockGlobalEventsService = new MockGlobalEventsService();
@@ -43,9 +44,8 @@ describe('Directive: appAxFocus01Fix', () => {
                 { provide: 'Window', useValue: mockWindowService }
             ],
             declarations: [AxFocusFixDirective, ContainerComponent]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ContainerComponent);

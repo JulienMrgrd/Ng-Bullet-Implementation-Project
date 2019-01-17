@@ -1,5 +1,5 @@
 /*  TODO: Convert the init from Promises to Observables
-
+import { configureTestSuite } from 'ng-bullet';
 import {
   async, ComponentFixture, fakeAsync, inject, TestBed, tick
 } from '@angular/core/testing';
@@ -72,10 +72,8 @@ function overrideSetup() {
             { provide: HeroDetailService, useClass: HeroDetailServiceSpy }
           ]
         }
-      })
-
-      .compileComponents();
-  }));
+      });
+  });
 
   let hdsSpy: HeroDetailServiceSpy;
 
@@ -136,9 +134,8 @@ function heroModuleSetup() {
         { provide: Router, useClass: RouterStub },
         HeroDetailService
       ]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   describe('when navigate to existing hero', () => {
     let expectedHero: Hero;
@@ -238,7 +235,7 @@ import { FormsModule } from '@angular/forms';
 import { TitleCasePipe } from '../../../../shared/title-case/title-case.pipe';
 
 function formsModuleSetup() {
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
       declarations: [HeroDetailComponent, TitleCasePipe],
@@ -248,9 +245,8 @@ function formsModuleSetup() {
         { provide: Router, useClass: RouterStub },
         HeroDetailService
       ]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   it('should display 1st hero\'s name', fakeAsync(() => {
     const expectedHero = firstHero;
@@ -265,7 +261,7 @@ function formsModuleSetup() {
 import { GreatBigExampleApplicationSharedModule } from '../../../../shared/shared.module';
 
 function sharedModuleSetup() {
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [GreatBigExampleApplicationSharedModule],
       declarations: [HeroDetailComponent],
@@ -275,9 +271,8 @@ function sharedModuleSetup() {
         { provide: Router, useClass: RouterStub },
         HeroDetailService
       ]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   it('should display 1st hero\'s name', fakeAsync(() => {
     const expectedHero = firstHero;

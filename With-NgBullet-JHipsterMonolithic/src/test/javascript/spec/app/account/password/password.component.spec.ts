@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
@@ -12,15 +13,13 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<PasswordComponent>;
         let service: PasswordService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [PasswordComponent],
                 providers: []
-            })
-                .overrideTemplate(PasswordComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(PasswordComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(PasswordComponent);

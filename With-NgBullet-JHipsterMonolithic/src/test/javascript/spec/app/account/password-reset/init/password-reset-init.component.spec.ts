@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { Renderer, ElementRef } from '@angular/core';
+import { RegisterComponent } from 'app/account';
+import { configureTestSuite } from 'ng-bullet';
 import { Observable, of, throwError } from 'rxjs';
 
 import { JhipsterTestModule } from '../../../../test.module';
@@ -12,8 +14,8 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<PasswordResetInitComponent>;
         let comp: PasswordResetInitComponent;
 
-        beforeEach(() => {
-            fixture = TestBed.configureTestingModule({
+        configureTestSuite(() => {
+            TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [PasswordResetInitComponent],
                 providers: [
@@ -28,9 +30,11 @@ describe('Component Tests', () => {
                         useValue: new ElementRef(null)
                     }
                 ]
-            })
-                .overrideTemplate(PasswordResetInitComponent, '')
-                .createComponent(PasswordResetInitComponent);
+            }).overrideTemplate(PasswordResetInitComponent, '');
+        });
+
+        beforeEach(() => {
+            fixture = TestBed.createComponent(PasswordResetInitComponent);
             comp = fixture.componentInstance;
             comp.ngOnInit();
         });

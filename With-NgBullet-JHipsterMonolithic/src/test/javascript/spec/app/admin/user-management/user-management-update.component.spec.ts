@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +18,7 @@ describe('Component Tests', () => {
             data: of({ user: new User(1, 'user', 'first', 'last', 'first@last.com', true, 'en', ['ROLE_USER'], 'admin', null, null, null) })
         } as any) as ActivatedRoute;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [UserMgmtUpdateComponent],
@@ -27,10 +28,8 @@ describe('Component Tests', () => {
                         useValue: route
                     }
                 ]
-            })
-                .overrideTemplate(UserMgmtUpdateComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(UserMgmtUpdateComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(UserMgmtUpdateComponent);

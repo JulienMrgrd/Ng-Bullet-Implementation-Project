@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { TestBed, async, tick, fakeAsync, inject } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
@@ -11,7 +12,7 @@ describe('Component Tests', () => {
     describe('ActivateComponent', () => {
         let comp: ActivateComponent;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [ActivateComponent],
@@ -21,10 +22,8 @@ describe('Component Tests', () => {
                         useValue: new MockActivatedRoute({ key: 'ABC123' })
                     }
                 ]
-            })
-                .overrideTemplate(ActivateComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(ActivateComponent, '');
+        });
 
         beforeEach(() => {
             const fixture = TestBed.createComponent(ActivateComponent);

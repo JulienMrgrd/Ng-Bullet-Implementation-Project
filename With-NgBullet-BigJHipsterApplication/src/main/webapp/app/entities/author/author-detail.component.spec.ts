@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async, inject } from '@angular/core/testing';
 import { OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
@@ -17,7 +18,7 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<AuthorDetailComponent>;
         let service: AuthorService;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [GreatBigExampleApplicationTestModule],
                 declarations: [AuthorDetailComponent],
@@ -32,9 +33,8 @@ describe('Component Tests', () => {
                     AuthorService,
                     JhiEventManager
                 ]
-            }).overrideTemplate(AuthorDetailComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(AuthorDetailComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(AuthorDetailComponent);

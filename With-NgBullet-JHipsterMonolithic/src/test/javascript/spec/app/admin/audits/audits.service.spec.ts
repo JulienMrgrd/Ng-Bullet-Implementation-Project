@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { TestBed } from '@angular/core/testing';
 
 import { AuditsService } from 'app/admin/audits/audits.service';
@@ -10,7 +11,7 @@ describe('Service Tests', () => {
         let service: AuditsService;
         let httpMock;
 
-        beforeEach(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });

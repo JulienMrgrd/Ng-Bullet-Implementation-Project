@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import {
     async, inject, TestBed
 } from '@angular/core/testing';
@@ -27,7 +28,7 @@ const makeHeroData = () => [
 ////////  Tests  /////////////
 describe('Http-RESTService (mockBackend)', () => {
 
-    beforeEach(async(() => {
+    configureTestSuite(() => {
         TestBed.configureTestingModule({
             imports: [
                 GreatBigExampleApplicationTestModule,
@@ -36,9 +37,8 @@ describe('Http-RESTService (mockBackend)', () => {
                 RESTService,
                 { provide: XHRBackend, useClass: MockBackend }
             ]
-        })
-            .compileComponents();
-    }));
+        });
+    });
 
     it('can instantiate service when inject service',
         inject([RESTService], (service: RESTService) => {

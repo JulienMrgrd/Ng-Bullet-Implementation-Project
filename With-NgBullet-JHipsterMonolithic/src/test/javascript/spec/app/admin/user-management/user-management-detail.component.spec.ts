@@ -1,3 +1,4 @@
+import { configureTestSuite } from 'ng-bullet';
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
@@ -14,7 +15,7 @@ describe('Component Tests', () => {
             data: of({ user: new User(1, 'user', 'first', 'last', 'first@last.com', true, 'en', ['ROLE_USER'], 'admin', null, null, null) })
         } as any) as ActivatedRoute;
 
-        beforeEach(async(() => {
+        configureTestSuite(() => {
             TestBed.configureTestingModule({
                 imports: [JhipsterTestModule],
                 declarations: [UserMgmtDetailComponent],
@@ -24,10 +25,8 @@ describe('Component Tests', () => {
                         useValue: route
                     }
                 ]
-            })
-                .overrideTemplate(UserMgmtDetailComponent, '')
-                .compileComponents();
-        }));
+            }).overrideTemplate(UserMgmtDetailComponent, '');
+        });
 
         beforeEach(() => {
             fixture = TestBed.createComponent(UserMgmtDetailComponent);
